@@ -1,16 +1,11 @@
 public class CalculateurRemise {
+    private final Remise strategie;
 
-    public double calculerTotal(int typeClient, double montant) {
+    public CalculateurRemise(Remise strategie) {
+        this.strategie = strategie;
+    }
 
-        if (typeClient == 1) {               // Standard
-            return montant;
-        } else if (typeClient == 2) {        // Étudiant
-            return montant * 0.9;
-        } else if (typeClient == 3) {        // VIP
-            return montant * 0.8;
-        } else {
-            System.out.println("Type client inconnu");
-            return montant;
-        }
+    public double calculerTotal(double montant) {
+        return strategie.RemiseAppliquer(montant);
     }
 }
