@@ -1,4 +1,4 @@
-public class ImprimanteMultifonction implements Machine {
+public class ImprimanteMultifonction implements Printer , Scanne, Fax {
 
     public void print() {
         System.out.println("Impression en cours...");

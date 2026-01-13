@@ -24,7 +24,7 @@ public class MainIsp {
 
             int machineChoisie = lireEntier(scanner);
 
-            Machine machine;
+            Printer machine;
             if (machineChoisie == 2) {
                 machine = new ImprimanteMultifonction();
             } else {
@@ -41,11 +41,23 @@ public class MainIsp {
         scanner.close();
     }
 
-    private static void executerFonction(Machine machine, int fonction) {
+    private static void executerFonction(Printer machine, int fonction) {
         switch (fonction) {
             case 1: machine.print(); break;
-            case 2: machine.scan(); break;
-            case 3: machine.fax(); break;
+            case 2:
+                if (machine instanceof Scanne) {
+                    ((Scanne) machine).scan();
+                } else {
+                    throw new UnsupportedOperationException();
+                }
+                break;
+            case 3:
+                if (machine instanceof Fax) {
+                    ((Fax) machine).fax();
+                } else {
+                    throw new UnsupportedOperationException();
+                }
+                break;
             default: System.out.println("Fonction inconnue");
         }
     }
