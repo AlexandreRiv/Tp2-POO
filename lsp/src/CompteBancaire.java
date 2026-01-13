@@ -1,4 +1,4 @@
-public class CompteBancaire {
+public class CompteBancaire extends Banque {
 
     protected double solde = 100;
 

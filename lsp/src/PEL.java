@@ -1,10 +1,11 @@
 import java.util.Date;
 
-public class PEL extends CompteBancaire {
+public class PEL extends Banque {
     private final double tauxInteret = 0.03;
+    protected double solde = 100;
 
-    @Override
-    public void retirer(double montant) {
-        throw new IllegalStateException("Impossible de retirer d'un PEL avant la date d'échéance.");
+    public double ajouter(double montant) {
+        solde += montant;
+        return solde;
     }
 }
